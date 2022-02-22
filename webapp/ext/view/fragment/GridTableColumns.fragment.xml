@@ -1,0 +1,16 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:table="sap.ui.table" xmlns:smartField="sap.ui.comp.smartfield" xmlns="sap.m">
+    <table:Column width="150px" hAlign="Begin" filterProperty="banfn" sortProperty="banfn">
+        <Label text="{/#ZPMS_C_ISBN_COMP_PACKType/banfn/@sap:label}"/>
+        <table:customData>
+            <core:CustomData 
+                key="p13nData" 
+                value='\{"columnKey": "banfn", "columnIndex" : "10"}' />
+        </table:customData>
+        <table:template>
+            <Link 
+                text="{banfn}" 
+                press=".onPRNavPress"
+                tooltip="{/#ZPMS_C_ISBN_COMP_PACKType/banfn/@sap:label}"/>
+        </table:template>
+    </table:Column>
+</core:FragmentDefinition>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_zpms_sd_ui_isbn_cmpk_o2" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZPMS_C_ISBN_COMP_PACKType" sap:label="Components/Packs Details" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="compack"/>
+                    <PropertyRef Name="posid"/>
+                </Key>
+                <Property Name="compack" Type="Edm.String" Nullable="false" MaxLength="24" sap:label="Components/Packs"/>
+                <Property Name="posid" Type="Edm.String" Nullable="false" MaxLength="24"/>
+                <Property Name="Impression" Type="Edm.String" MaxLength="24" sap:label="Impression"/>
+                <Property Name="post1" Type="Edm.String" MaxLength="40" sap:label="Description" sap:quickinfo="PS: Short description (1st text line)"/>
+                <Property Name="wbs" Type="Edm.String" MaxLength="22"/>
+                <Property Name="menge" Type="Edm.Decimal" Precision="13" Scale="3"/>
+                <Property Name="usrstat_code" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:text="usrstat_code_Text" sap:label="User Status" sap:quickinfo="Object status"/>
+                <Property Name="usrstat_code_Text" Type="Edm.String" MaxLength="30" sap:label="Description" sap:quickinfo="Object status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="vernr" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:text="vernr_Text" sap:label="No. of Person Resp." sap:quickinfo="Number of the Responsible Person (Project Manager)"/>
+                <Property Name="vernr_Text" Type="Edm.String" MaxLength="25" sap:label="Name of Person Resp." sap:quickinfo="Name of responsible person (Project manager)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="astnr" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Applicant no." sap:quickinfo="Applicant number"/>
+                <Property Name="banfn" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Purchase Requisition" sap:quickinfo="Purchase Requisition Number"/>
+                <Property Name="frgzu" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Release State"/>
+                <Property Name="frgco" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:text="frgco_Text" sap:label="PReq Release Status" sap:quickinfo="Release code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="frgco_Text" Type="Edm.String" MaxLength="20" sap:label="Description" sap:quickinfo="Description of release code" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="po_ebeln" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Purchasing Document" sap:quickinfo="Purchasing Document Number"/>
+                <Property Name="pr_text" Type="Edm.String" MaxLength="1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="pc_ebeln" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Purchasing Document" sap:quickinfo="Purchasing Document Number"/>
+                <Property Name="bulk_deal" Type="Edm.String" MaxLength="100" sap:display-format="UpperCase" sap:text="bulk_deal_Text" sap:label="Character 100" sap:heading=""/>
+                <Property Name="bulk_deal_Text" Type="Edm.String" MaxLength="25" sap:display-format="UpperCase" sap:label="Bulk Deal Descriptn" sap:quickinfo="Bulk Deal Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="pack_post1" Type="Edm.String" MaxLength="40" sap:label="Description" sap:quickinfo="PS: Short description (1st text line)"/>
+                <Property Name="prart" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Proj.type" sap:quickinfo="Project type"/>
+                <Property Name="wbs_isbn" Type="Edm.String" MaxLength="13"/>
+                <Property Name="zz1_mediaproductserie_prd" Type="Edm.String" MaxLength="18" sap:label="Media product series"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="60" sap:label="Media Type (Desc.)"/>
+                <Property Name="matnr" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="ISBN" sap:quickinfo="Material Number"/>
+            </EntityType>
+            <EntityContainer Name="cds_zpms_sd_ui_isbn_cmpk_o2_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZPMS_C_ISBN_COMP_PACK" EntityType="cds_zpms_sd_ui_isbn_cmpk_o2.ZPMS_C_ISBN_COMP_PACKType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotations Target="cds_zpms_sd_ui_isbn_cmpk_o2.cds_zpms_sd_ui_isbn_cmpk_o2_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zpms_sd_ui_isbn_cmpk_o2.ZPMS_C_ISBN_COMP_PACKType/Description" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpms_sd_ui_isbn_cmpk_o2.ZPMS_C_ISBN_COMP_PACKType/astnr" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpms_sd_ui_isbn_cmpk_o2.ZPMS_C_ISBN_COMP_PACKType/banfn" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpms_sd_ui_isbn_cmpk_o2.ZPMS_C_ISBN_COMP_PACKType/bulk_deal" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpms_sd_ui_isbn_cmpk_o2.ZPMS_C_ISBN_COMP_PACKType/compack" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpms_sd_ui_isbn_cmpk_o2.ZPMS_C_ISBN_COMP_PACKType/menge" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpms_sd_ui_isbn_cmpk_o2.ZPMS_C_ISBN_COMP_PACKType/pack_post1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpms_sd_ui_isbn_cmpk_o2.ZPMS_C_ISBN_COMP_PACKType/pc_ebeln" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpms_sd_ui_isbn_cmpk_o2.ZPMS_C_ISBN_COMP_PACKType/po_ebeln" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpms_sd_ui_isbn_cmpk_o2.ZPMS_C_ISBN_COMP_PACKType/posid" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpms_sd_ui_isbn_cmpk_o2.ZPMS_C_ISBN_COMP_PACKType/post1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpms_sd_ui_isbn_cmpk_o2.ZPMS_C_ISBN_COMP_PACKType/pr_text" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpms_sd_ui_isbn_cmpk_o2.ZPMS_C_ISBN_COMP_PACKType/prart" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpms_sd_ui_isbn_cmpk_o2.ZPMS_C_ISBN_COMP_PACKType/wbs" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpms_sd_ui_isbn_cmpk_o2.ZPMS_C_ISBN_COMP_PACKType/wbs_isbn" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpms_sd_ui_isbn_cmpk_o2.ZPMS_C_ISBN_COMP_PACKType/zz1_mediaproductserie_prd" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpms_sd_ui_isbn_cmpk_o2.cds_zpms_sd_ui_isbn_cmpk_o2_Entities/ZPMS_C_ISBN_COMP_PACK" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>frgco</PropertyPath>
+                                <PropertyPath>pr_text</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>frgco</PropertyPath>
+                                <PropertyPath>pr_text</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://s4dbasdev130:443/sap/opu/odata/sap/ZPMS_SB_UI_ISBN_CMPK_O2/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://s4dbasdev130:443/sap/opu/odata/sap/ZPMS_SB_UI_ISBN_CMPK_O2/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
